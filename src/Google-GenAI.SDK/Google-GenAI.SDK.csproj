@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>GoogleGenAI.SDK</RootNamespace>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net8.0</TargetFrameworks>
+    <PackageTags>Google;Gemini;SDK;AI;client;rest;api;restease;</PackageTags>
+    <Description>This unofficial (RestEase based) client enables working with the Google Gemini REST Interface (https://ai.google.dev/gemini-api/docs)</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RestEase.HttpClientFactory" Version="1.6.4" />
+    <PackageReference Include="RestEase.SourceGenerator" Version="1.6.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' != 'net8.0' ">
+    <PackageReference Include="Polyfill" Version="8.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' != 'net8.0' ">
+    <PackageReference Include="SanitizedHttpLogger" Version="0.0.3.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+    <PackageReference Include="SanitizedHttpClientLogger" Version="0.0.3.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'netstandard2.1'">
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="$(AssemblyName).Tests" />
+  </ItemGroup>
+
+</Project>
