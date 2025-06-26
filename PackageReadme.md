@@ -10,7 +10,7 @@ var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.Development.json", optional: true)
     .Build();
 
-services.(configuration);
+services.AddGoogleGeminiSDK(configuration);
 
 var serviceProvider = services.BuildServiceProvider();
 ```
