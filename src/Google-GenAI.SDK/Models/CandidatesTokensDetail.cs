@@ -2,6 +2,7 @@
 
 public class CandidatesTokensDetail
 {
-    public string modality { get; set; }
-    public int tokenCount { get; set; }
+    public required string Modality { get; set; }
+
+    public int TokenCount { get; set; }
 }
