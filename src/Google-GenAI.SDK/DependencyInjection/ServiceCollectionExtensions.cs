@@ -62,7 +62,7 @@ public static class ServiceCollectionExtensions
 
         if (string.IsNullOrEmpty(options.HttpClientName))
         {
-            options.HttpClientName = nameof(IGoogleGeminiApi);
+            options.HttpClientName = nameof(IGenerativeLanguageApi);
         }
 
         services.AddOptionsWithDataAnnotationValidation(options);
@@ -73,8 +73,8 @@ public static class ServiceCollectionExtensions
                 httpClient.BaseAddress = options.BaseAddress;
                 httpClient.Timeout = TimeSpan.FromSeconds(options.TimeoutInSeconds);
             })
-            .AddPolicyHandler((serviceProvider, _) => HttpClientRetryPolicies.GetPolicy<IGoogleGeminiApi>(serviceProvider, options.MaxRetries, options.HttpStatusCodesToRetry))
-            .UseWithRestEaseClient(new UseWithRestEaseClientOptions<IGoogleGeminiApi>
+            .AddPolicyHandler((serviceProvider, _) => HttpClientRetryPolicies.GetPolicy<IGenerativeLanguageApi>(serviceProvider, options.MaxRetries, options.HttpStatusCodesToRetry))
+            .UseWithRestEaseClient(new UseWithRestEaseClientOptions<IGenerativeLanguageApi>
             {
                 RestClientConfigurer = restClient => restClient.JsonSerializerSettings = jsonSerializerSettings,
                 InstanceConfigurer = geminiApi =>

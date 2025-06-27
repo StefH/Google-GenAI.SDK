@@ -23,9 +23,9 @@ var serviceProvider = services.BuildServiceProvider();
 ### Example
 
 ``` c#
-var api = serviceProvider.GetRequiredService<IGoogleGeminiApi>();
+var api = serviceProvider.GetRequiredService<IGenerativeLanguageApi>();
 
-var result = await api.GenerateContentAsync("gemini-2.0-flash", new GeminiRequest
+var result = await api.GenerateContentAsync("gemini-2.0-flash", new GenerateContentRequest
 {
     Contents =
     [
