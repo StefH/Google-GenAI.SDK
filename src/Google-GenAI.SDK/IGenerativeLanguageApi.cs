@@ -24,7 +24,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:generateText")]
+    [Post("models/{model}:generateText")]
     Task<GenerateTextResponse> GenerateTextAsync(
         [Path] string model,
         [Body] GenerateTextRequest body,
@@ -44,7 +44,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:predict")]
+    [Post("models/{model}:predict")]
     Task<PredictResponse> PredictAsync(
         [Path] string model,
         [Body] PredictRequest body,
@@ -66,7 +66,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:streamGenerateContent")]
+    [Post("models/{model}:streamGenerateContent")]
     Task<GenerateContentResponse> StreamGenerateContentAsync(
         [Path] string model,
         [Body] GenerateContentRequest body,
@@ -94,7 +94,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/cachedContents")]
+    [Get("cachedContents")]
     Task<ListCachedContentsResponse> ListCachedContentsAsync(
         [Query] int? pageSize = null,
         [Query] string? pageToken = null,
@@ -113,7 +113,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/cachedContents")]
+    [Post("cachedContents")]
     Task<CachedContent> CreateCachedContentAsync(
         [Body] CachedContent body,
         [Query("$alt")] string? alt = null,
@@ -133,7 +133,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/dynamic/{dynamicId}:streamGenerateContent")]
+    [Post("dynamic/{dynamicId}:streamGenerateContent")]
     Task<GenerateContentResponse> StreamGenerateContentByDynamicIdAsync(
         [Path] string dynamicId,
         [Body] GenerateContentRequest body,
@@ -155,7 +155,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:countTokens")]
+    [Post("models/{model}:countTokens")]
     Task<CountTokensResponse> CountTokensAsync(
         [Path] string model,
         [Body] CountTokensRequest body,
@@ -185,7 +185,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/corpora")]
+    [Get("corpora")]
     Task<ListCorporaResponse> ListCorporaAsync(
         [Query] int? pageSize = null,
         [Query] string? pageToken = null,
@@ -204,7 +204,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/corpora")]
+    [Post("corpora")]
     Task<Corpus> CreateCorpusAsync(
         [Body] Corpus body,
         [Query("$alt")] string? alt = null,
@@ -223,7 +223,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/corpora/{corpus}:query")]
+    [Post("corpora/{corpus}:query")]
     Task<QueryCorpusResponse> QueryCorpusAsync(
         [Path] string corpus,
         [Body] QueryCorpusRequest body,
@@ -244,7 +244,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/corpora/{corpus}/documents/{document}:query")]
+    [Post("corpora/{corpus}/documents/{document}:query")]
     Task<QueryDocumentResponse> QueryDocumentAsync(
         [Path] string corpus,
         [Path] string document,
@@ -266,7 +266,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:batchEmbedText")]
+    [Post("models/{model}:batchEmbedText")]
     Task<BatchEmbedTextResponse> BatchEmbedTextAsync(
         [Path] string model,
         [Body] BatchEmbedTextRequest body,
@@ -286,7 +286,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/corpora/{corpus}/permissions")]
+    [Post("corpora/{corpus}/permissions")]
     Task<Permission> CreatePermissionByCorpusAsync(
         [Path] string corpus,
         [Body] Permission body,
@@ -318,7 +318,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/corpora/{corpus}/permissions")]
+    [Get("corpora/{corpus}/permissions")]
     Task<ListPermissionsResponse> ListPermissionsByCorpusAsync(
         [Path] string corpus,
         [Query] int? pageSize = null,
@@ -341,7 +341,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/models/{model}/operations/{operation}")]
+    [Get("models/{model}/operations/{operation}")]
     Task<Operation> GetOperationByModelAndOperationAsync(
         [Path] string model,
         [Path] string operation,
@@ -362,7 +362,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/corpora/{corpus}/documents/{document}/chunks")]
+    [Post("corpora/{corpus}/documents/{document}/chunks")]
     Task<Chunk> CreateChunkAsync(
         [Path] string corpus,
         [Path] string document,
@@ -395,7 +395,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/corpora/{corpus}/documents/{document}/chunks")]
+    [Get("corpora/{corpus}/documents/{document}/chunks")]
     Task<ListChunksResponse> ListChunksAsync(
         [Path] string corpus,
         [Path] string document,
@@ -416,7 +416,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/files/{file}:download")]
+    [Get("files/{file}:download")]
     Task<DownloadFileResponse> DownloadFileAsync(
         [Path] string file,
         [Query("$alt")] string? alt = null,
@@ -437,7 +437,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/tunedModels/{tunedModel}:transferOwnership")]
+    [Post("tunedModels/{tunedModel}:transferOwnership")]
     Task<TransferOwnershipResponse> TransferOwnershipAsync(
         [Path] string tunedModel,
         [Body] TransferOwnershipRequest body,
@@ -461,7 +461,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Patch("/v1beta/corpora/{corpus}/documents/{document}")]
+    [Patch("corpora/{corpus}/documents/{document}")]
     Task<Document> UpdateDocumentAsync(
         [Path] string corpus,
         [Path] string document,
@@ -488,7 +488,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Delete("/v1beta/corpora/{corpus}/documents/{document}")]
+    [Delete("corpora/{corpus}/documents/{document}")]
     Task<Empty> DeleteDocumentAsync(
         [Path] string corpus,
         [Path] string document,
@@ -509,7 +509,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/corpora/{corpus}/documents/{document}")]
+    [Get("corpora/{corpus}/documents/{document}")]
     Task<Document> GetDocumentAsync(
         [Path] string corpus,
         [Path] string document,
@@ -529,7 +529,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/corpora/{corpus}/permissions/{permission}")]
+    [Get("corpora/{corpus}/permissions/{permission}")]
     Task<Permission> GetPermissionByCorpusAndPermissionAsync(
         [Path] string corpus,
         [Path] string permission,
@@ -554,7 +554,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Patch("/v1beta/corpora/{corpus}/permissions/{permission}")]
+    [Patch("corpora/{corpus}/permissions/{permission}")]
     Task<Permission> UpdatePermissionByCorpusAndPermissionAsync(
         [Path] string corpus,
         [Path] string permission,
@@ -576,7 +576,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Delete("/v1beta/corpora/{corpus}/permissions/{permission}")]
+    [Delete("corpora/{corpus}/permissions/{permission}")]
     Task<Empty> DeletePermissionByCorpusAndPermissionAsync(
         [Path] string corpus,
         [Path] string permission,
@@ -597,7 +597,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/generatedFiles/{generatedFile}")]
+    [Get("generatedFiles/{generatedFile}")]
     Task<GeneratedFile> GetGeneratedFileAsync(
         [Path] string generatedFile,
         [Query("$alt")] string? alt = null,
@@ -622,7 +622,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/dynamic/{dynamicId}:generateContent")]
+    [Post("dynamic/{dynamicId}:generateContent")]
     Task<GenerateContentResponse> GenerateContentByDynamicIdAsync(
         [Path] string dynamicId,
         [Body] GenerateContentRequest body,
@@ -641,7 +641,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/files")]
+    [Post("files")]
     Task<CreateFileResponse> CreateFileAsync(
         [Body] CreateFileRequest body,
         [Query("$alt")] string? alt = null,
@@ -661,7 +661,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/files")]
+    [Get("files")]
     Task<ListFilesResponse> ListFilesAsync(
         [Query] int? pageSize = null,
         [Query] string? pageToken = null,
@@ -681,7 +681,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:generateMessage")]
+    [Post("models/{model}:generateMessage")]
     Task<GenerateMessageResponse> GenerateMessageAsync(
         [Path] string model,
         [Body] GenerateMessageRequest body,
@@ -701,7 +701,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/tunedModels/{tunedModel}/permissions/{permission}")]
+    [Get("tunedModels/{tunedModel}/permissions/{permission}")]
     Task<Permission> GetTunedModelPermissionAsync(
         [Path] string tunedModel,
         [Path] string permission,
@@ -721,7 +721,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Delete("/v1beta/tunedModels/{tunedModel}/permissions/{permission}")]
+    [Delete("tunedModels/{tunedModel}/permissions/{permission}")]
     Task<Empty> DeleteTunedModelPermissionAsync(
         [Path] string tunedModel,
         [Path] string permission,
@@ -746,7 +746,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Patch("/v1beta/tunedModels/{tunedModel}/permissions/{permission}")]
+    [Patch("tunedModels/{tunedModel}/permissions/{permission}")]
     Task<Permission> UpdateTunedModelPermissionAsync(
         [Path] string tunedModel,
         [Path] string permission,
@@ -780,7 +780,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/tunedModels/{tunedModel}/permissions")]
+    [Get("tunedModels/{tunedModel}/permissions")]
     Task<ListPermissionsResponse> ListTunedModelPermissionsAsync(
         [Path] string tunedModel,
         [Query] int? pageSize = null,
@@ -801,7 +801,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/tunedModels/{tunedModel}/permissions")]
+    [Post("tunedModels/{tunedModel}/permissions")]
     Task<Permission> CreateTunedModelPermissionAsync(
         [Path] string tunedModel,
         [Body] Permission body,
@@ -821,7 +821,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:countTextTokens")]
+    [Post("models/{model}:countTextTokens")]
     Task<CountTextTokensResponse> CountTextTokensAsync(
         [Path] string model,
         [Body] CountTextTokensRequest body,
@@ -840,7 +840,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Delete("/v1beta/files/{file}")]
+    [Delete("files/{file}")]
     Task<Empty> DeleteFileAsync(
         [Path] string file,
         [Query("$alt")] string? alt = null,
@@ -858,7 +858,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/files/{file}")]
+    [Get("files/{file}")]
     Task<GoogleFile> GetFileAsync(
         [Path] string file,
         [Query("$alt")] string? alt = null,
@@ -876,7 +876,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Delete("/v1beta/cachedContents/{id}")]
+    [Delete("cachedContents/{id}")]
     Task<Empty> DeleteCachedContentAsync(
         [Path] string id,
         [Query("$alt")] string? alt = null,
@@ -896,7 +896,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Patch("/v1beta/cachedContents/{id}")]
+    [Patch("cachedContents/{id}")]
     Task<CachedContent> UpdateCachedContentAsync(
         [Path] string id,
         [Body] CachedContent body,
@@ -916,7 +916,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/cachedContents/{id}")]
+    [Get("cachedContents/{id}")]
     Task<CachedContent> GetCachedContentAsync(
         [Path] string id,
         [Query("$alt")] string? alt = null,
@@ -937,7 +937,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/batches")]
+    [Get("batches")]
     Task<ListOperationsResponse> ListOperationsByAsync(
         [Query] string? filter = null,
         [Query] int? pageSize = null,
@@ -960,7 +960,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/tunedModels/{tunedModel}/operations/{operation}")]
+    [Get("tunedModels/{tunedModel}/operations/{operation}")]
     Task<Operation> GetTunedModelOperationAsync(
         [Path] string tunedModel,
         [Path] string operation,
@@ -1007,7 +1007,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/batches/{generateContentBatch}")]
+    [Get("batches/{generateContentBatch}")]
     Task<Operation> GetOperationByGenerateContentBatchAsync(
         [Path] string generateContentBatch,
         [Query("$alt")] string? alt = null,
@@ -1027,7 +1027,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/corpora/{corpus}/documents/{document}/chunks:batchCreate")]
+    [Post("corpora/{corpus}/documents/{document}/chunks:batchCreate")]
     Task<BatchCreateChunksResponse> BatchCreateChunksAsync(
         [Path] string corpus,
         [Path] string document,
@@ -1052,7 +1052,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Patch("/v1beta/corpora/{corpus}/documents/{document}/chunks/{chunk}")]
+    [Patch("corpora/{corpus}/documents/{document}/chunks/{chunk}")]
     Task<Chunk> UpdateChunkAsync(
         [Path] string corpus,
         [Path] string document,
@@ -1076,7 +1076,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Delete("/v1beta/corpora/{corpus}/documents/{document}/chunks/{chunk}")]
+    [Delete("corpora/{corpus}/documents/{document}/chunks/{chunk}")]
     Task<Empty> DeleteChunkAsync(
         [Path] string corpus,
         [Path] string document,
@@ -1098,7 +1098,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/corpora/{corpus}/documents/{document}/chunks/{chunk}")]
+    [Get("corpora/{corpus}/documents/{document}/chunks/{chunk}")]
     Task<Chunk> GetChunkAsync(
         [Path] string corpus,
         [Path] string document,
@@ -1121,7 +1121,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:embedContent")]
+    [Post("models/{model}:embedContent")]
     Task<EmbedContentResponse> EmbedContentAsync(
         [Path] string model,
         [Body] EmbedContentRequest body,
@@ -1141,7 +1141,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/corpora/{corpus}/documents")]
+    [Post("corpora/{corpus}/documents")]
     Task<Document> CreateDocumentAsync(
         [Path] string corpus,
         [Body] Document body,
@@ -1172,7 +1172,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/corpora/{corpus}/documents")]
+    [Get("corpora/{corpus}/documents")]
     Task<ListDocumentsResponse> ListDocumentsAsync(
         [Path] string corpus,
         [Query] int? pageSize = null,
@@ -1195,7 +1195,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/tunedModels/{tunedModel}:streamGenerateContent")]
+    [Post("tunedModels/{tunedModel}:streamGenerateContent")]
     Task<GenerateContentResponse> StreamGenerateContentByTunedModelAsync(
         [Path] string tunedModel,
         [Body] GenerateContentRequest body,
@@ -1217,7 +1217,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:batchEmbedContents")]
+    [Post("models/{model}:batchEmbedContents")]
     Task<BatchEmbedContentsResponse> BatchEmbedContentsAsync(
         [Path] string model,
         [Body] BatchEmbedContentsRequest body,
@@ -1238,7 +1238,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:generateAnswer")]
+    [Post("models/{model}:generateAnswer")]
     Task<GenerateAnswerResponse> GenerateAnswerAsync(
         [Path] string model,
         [Body] GenerateAnswerRequest body,
@@ -1259,7 +1259,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/generatedFiles")]
+    [Get("generatedFiles")]
     Task<ListGeneratedFilesResponse> ListGeneratedFilesAsync(
         [Query] int? pageSize = null,
         [Query] string? pageToken = null,
@@ -1282,7 +1282,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/tunedModels/{tunedModel}/operations")]
+    [Get("tunedModels/{tunedModel}/operations")]
     Task<ListOperationsResponse> ListTunedModelOperationsAsync(
         [Path] string tunedModel,
         [Query] string? filter = null,
@@ -1310,7 +1310,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/tunedModels/{tunedModel}:generateContent")]
+    [Post("tunedModels/{tunedModel}:generateContent")]
     Task<GenerateContentResponse> GenerateContentByTunedModelAsync(
         [Path] string tunedModel,
         [Body] GenerateContentRequest body,
@@ -1330,7 +1330,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:countMessageTokens")]
+    [Post("models/{model}:countMessageTokens")]
     Task<CountMessageTokensResponse> CountMessageTokensAsync(
         [Path] string model,
         [Body] CountMessageTokensRequest body,
@@ -1352,7 +1352,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Patch("/v1beta/corpora/{corpus}")]
+    [Patch("corpora/{corpus}")]
     Task<Corpus> UpdateCorpusAsync(
         [Path] string corpus,
         [Query] string updateMask,
@@ -1372,7 +1372,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/corpora/{corpus}")]
+    [Get("corpora/{corpus}")]
     Task<Corpus> GetCorpusAsync(
         [Path] string corpus,
         [Query("$alt")] string? alt = null,
@@ -1395,7 +1395,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Delete("/v1beta/corpora/{corpus}")]
+    [Delete("corpora/{corpus}")]
     Task<Empty> DeleteCorpusAsync(
         [Path] string corpus,
         [Query] bool? force = null,
@@ -1418,7 +1418,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/models/{model}/operations")]
+    [Get("models/{model}/operations")]
     Task<ListOperationsResponse> ListOperationsByModelAsync(
         [Path] string model,
         [Query] string? filter = null,
@@ -1444,7 +1444,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/models/{model}")]
+    [Get("models/{model}")]
     Task<Model> GetModelAsync(
         [Path] string model,
         [Query("$alt")] string? alt = null,
@@ -1465,7 +1465,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/generatedFiles/{generatedFile}/operations/{operation}")]
+    [Get("generatedFiles/{generatedFile}/operations/{operation}")]
     Task<Operation> GetOperationByGeneratedFileAndOperationAsync(
         [Path] string generatedFile,
         [Path] string operation,
@@ -1493,7 +1493,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/batches/{generateContentBatch}:cancel")]
+    [Post("batches/{generateContentBatch}:cancel")]
     Task<Empty> CancelOperationAsync(
         [Path] string generateContentBatch,
         [Query("$alt")] string? alt = null,
@@ -1512,7 +1512,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:embedText")]
+    [Post("models/{model}:embedText")]
     Task<EmbedTextResponse> EmbedTextAsync(
         [Path] string model,
         [Body] EmbedTextRequest body,
@@ -1533,7 +1533,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/corpora/{corpus}/documents/{document}/chunks:batchUpdate")]
+    [Post("corpora/{corpus}/documents/{document}/chunks:batchUpdate")]
     Task<BatchUpdateChunksResponse> BatchUpdateChunksAsync(
         [Path] string corpus,
         [Path] string document,
@@ -1565,7 +1565,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/models")]
+    [Get("models")]
     Task<ListModelsResponse> ListModelsAsync(
         [Query] int? pageSize = null,
         [Query] string? pageToken = null,
@@ -1594,7 +1594,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/tunedModels")]
+    [Post("tunedModels")]
     Task<CreateTunedModelOperation> CreateTunedModelAsync(
         [Body] TunedModel body,
         [Query] string? tunedModelId = null,
@@ -1639,7 +1639,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/tunedModels")]
+    [Get("tunedModels")]
     Task<ListTunedModelsResponse> ListTunedModelsAsync(
         [Query] int? pageSize = null,
         [Query] string? pageToken = null,
@@ -1660,7 +1660,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/tunedModels/{tunedModel}:generateText")]
+    [Post("tunedModels/{tunedModel}:generateText")]
     Task<GenerateTextResponse> GenerateTextByTunedModelAsync(
         [Path] string tunedModel,
         [Body] GenerateTextRequest body,
@@ -1681,7 +1681,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Patch("/v1beta/tunedModels/{tunedModel}")]
+    [Patch("tunedModels/{tunedModel}")]
     Task<TunedModel> UpdateTunedModelAsync(
         [Path] string tunedModel,
         [Body] TunedModel body,
@@ -1701,7 +1701,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Get("/v1beta/tunedModels/{tunedModel}")]
+    [Get("tunedModels/{tunedModel}")]
     Task<TunedModel> GetTunedModelAsync(
         [Path] string tunedModel,
         [Query("$alt")] string? alt = null,
@@ -1719,7 +1719,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Delete("/v1beta/tunedModels/{tunedModel}")]
+    [Delete("tunedModels/{tunedModel}")]
     Task<Empty> DeleteTunedModelAsync(
         [Path] string tunedModel,
         [Query("$alt")] string? alt = null,
@@ -1738,7 +1738,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/models/{model}:predictLongRunning")]
+    [Post("models/{model}:predictLongRunning")]
     Task<PredictLongRunningOperation> PredictLongRunningAsync(
         [Path] string model,
         [Body] PredictLongRunningRequest body,
@@ -1759,7 +1759,7 @@ public interface IGenerativeLanguageApi
     /// <param name="prettyPrint">Returns response with indentations and line breaks.</param>
     /// <param name="xgafv">V1 error format.</param>
     /// <param name="cancellationToken">The optional <see cref="CancellationToken"/>.</param>
-    [Post("/v1beta/corpora/{corpus}/documents/{document}/chunks:batchDelete")]
+    [Post("corpora/{corpus}/documents/{document}/chunks:batchDelete")]
     Task<Empty> BatchDeleteChunksAsync(
         [Path] string corpus,
         [Path] string document,

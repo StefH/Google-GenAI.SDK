@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
 
-namespace n8n.SDK.ConsoleApp;
+namespace GoogleGenAI.SDK.ConsoleApp;
 
 static class Program
 {

@@ -56,11 +56,6 @@ public class CachedContent
     public CachedContentUsageMetadata? UsageMetadata { get; init; }
 
     /// <summary>
-    /// Required. Immutable. The name of the `Model` to use for cached content Format: `models/{model}`
-    /// </summary>
-    public required string Model { get; init; }
-
-    /// <summary>
     /// Optional. Input only. Immutable. Tool config. This config is shared for all tools.
     /// </summary>
     public ToolConfig? ToolConfig { get; init; }

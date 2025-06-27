@@ -6,11 +6,6 @@
 public class EmbedContentRequest
 {
     /// <summary>
-    /// Required. The model's resource name. This serves as an ID for the Model to use.  This name should match a model name returned by the `ListModels` method.  Format: `models/{model}`
-    /// </summary>
-    public required string Model { get; init; }
-
-    /// <summary>
     /// Required. The content to embed. Only the `parts.text` fields will be counted.
     /// </summary>
     public required Content Content { get; init; }
