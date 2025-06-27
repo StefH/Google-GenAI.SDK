@@ -5,11 +5,20 @@ using Newtonsoft.Json;
 
 namespace n8n.SDK.ConsoleApp;
 
-internal class Worker(IGoogleGeminiApi api, ILogger<Worker> logger)
+internal class Worker(IGenerativeLanguageApi api, ILogger<Worker> logger)
 {
     public async Task RunAsync(CancellationToken cancellationToken = default)
     {
-        var result = await api.GenerateContentAsync("gemini-2.0-flash", new GeminiRequest
+        var textResponse = await api.GenerateTextAsync("gemini-2.0-flash", new GenerateTextRequest
+        {
+            Prompt = new TextPrompt
+            {
+                Text = "Explain how AI works in a few words"
+            }
+        }, cancellationToken: cancellationToken);
+        logger.LogInformation("result: {result}", ToJson(textResponse));
+
+        var contentResponse = await api.GenerateContentAsync("gemini-2.0-flash", new GenerateContentRequest
         {
             Contents =
             [
@@ -24,8 +33,8 @@ internal class Worker(IGoogleGeminiApi api, ILogger<Worker> logger)
                     ]
                 }
             ]
-        }, cancellationToken);
-        logger.LogInformation("result: {result}", ToJson(result));
+        }, cancellationToken: cancellationToken);
+        logger.LogInformation("result: {result}", ToJson(contentResponse));
     }
 
     private static string ToJson(object value)
