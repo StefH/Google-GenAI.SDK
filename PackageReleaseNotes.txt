@@ -1,0 +1,4 @@
+# 0.0.1 (27 June 2025)
+- #2 Add interface methods and models according to swagger document [enhancement]
+
+The full release notes can be found here: https://github.com/StefH/Google-GenAI.SDK/blob/main/ReleaseNotes.md
